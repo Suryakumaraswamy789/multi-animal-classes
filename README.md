@@ -1,4 +1,4 @@
-Tools and Technology used
+Tools and Technology Used
 Programming Language: Python
 
 Frameworks & Libraries: TensorFlow and Keras
