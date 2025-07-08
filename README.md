@@ -1,4 +1,7 @@
-Tools and Technology Used
+###Tools and Technology Used###
+
+
+
 Programming Language: Python
 
 Frameworks & Libraries: TensorFlow and Keras
@@ -9,7 +12,7 @@ Development Environment: Google Colab
 
 Dataset: https://www.Kaggle.com/datasets/iamsouravbanerjee/animal-image-dataset-90-different-animals/data
 
-Other tools: numpy, matplotlib, seaborn
+Other tools: numpy, matplotlib, seaborn   
 Problem Statement:
 Multi-Class Animal Recognition for Wildlife Conservation
 
