@@ -4,9 +4,18 @@ A deep learning web app that identifies **90 animal species** from images using 
 
 ---
 
+## 🌐 Live Demo
+
+**Try the application online:**
+https://multi-animal-classes-i03aq87pz.vercel.app/
+
+Upload an animal image and get the predicted species along with the **Top 5 confidence scores**.
+
+---
+
 ## Project Structure
 
-```
+```text
 multi-animal-classes-main/
 ├── MCAR.keras                        # Trained model file
 ├── multi_class_animal.ipynb          # Training notebook (Google Colab)
@@ -30,9 +39,9 @@ multi-animal-classes-main/
 
 ## Requirements
 
-- Python 3.10 or 3.11
-- Node.js 18+
-- pip
+* Python 3.10 or 3.11
+* Node.js 18+
+* pip
 
 ---
 
@@ -47,6 +56,7 @@ copy multi-animal-classes-main\MCAR.keras multi-animal-classes-main\animal-class
 ```
 
 Or on PowerShell:
+
 ```powershell
 Copy-Item "multi-animal-classes-main\MCAR.keras" "multi-animal-classes-main\animal-classifier\backend\MCAR.keras"
 ```
@@ -64,7 +74,8 @@ uvicorn main:app --reload --port 8000
 ```
 
 You should see:
-```
+
+```text
 Model loaded successfully.
 INFO: Uvicorn running on http://127.0.0.1:8000
 ```
@@ -84,7 +95,8 @@ npm run dev
 ```
 
 You should see:
-```
+
+```text
 VITE ready on http://localhost:5173
 ```
 
@@ -92,11 +104,15 @@ VITE ready on http://localhost:5173
 
 ### Step 4 — Open the App
 
-Go to **http://localhost:5173** in your browser.
+Go to:
 
-- Drag & drop or click to upload any animal image
-- Click **Classify Animal**
-- See the predicted species + top 5 confidence scores
+```text
+http://localhost:5173
+```
+
+* Drag & drop or click to upload any animal image
+* Click **Classify Animal**
+* See the predicted species + top 5 confidence scores
 
 ---
 
@@ -105,7 +121,7 @@ Go to **http://localhost:5173** in your browser.
 The backend runs on `http://localhost:8000`.
 
 | Method | Endpoint   | Description                        |
-|--------|------------|------------------------------------|
+| ------ | ---------- | ---------------------------------- |
 | GET    | `/health`  | Check if server and model are live |
 | POST   | `/predict` | Upload an image, get prediction    |
 
@@ -123,10 +139,10 @@ curl -X POST http://localhost:8000/predict \
   "prediction": "tiger",
   "confidence": 94.31,
   "top5": [
-    { "label": "tiger",   "confidence": 94.31 },
-    { "label": "leopard", "confidence":  3.12 },
-    { "label": "lion",    "confidence":  1.05 },
-    { "label": "cat",     "confidence":  0.87 },
+    { "label": "tiger", "confidence": 94.31 },
+    { "label": "leopard", "confidence": 3.12 },
+    { "label": "lion", "confidence": 1.05 },
+    { "label": "cat", "confidence": 0.87 },
     { "label": "chimpanzee", "confidence": 0.65 }
   ]
 }
@@ -136,14 +152,14 @@ curl -X POST http://localhost:8000/predict \
 
 ## Model Details
 
-| Property        | Value                          |
-|-----------------|-------------------------------|
-| Architecture    | MobileNetV2 (transfer learning)|
-| Input size      | 224 × 224 × 3                 |
-| Output classes  | 90                             |
-| Activation      | Softmax                        |
-| Training env    | Google Colab (GPU)             |
-| Dataset         | [Animal Image Dataset — 90 Animals](https://www.kaggle.com/datasets/iamsouravbanerjee/animal-image-dataset-90-different-animals) |
+| Property             | Value                             |
+| -------------------- | --------------------------------- |
+| Architecture         | MobileNetV2 (transfer learning)   |
+| Input size           | 224 × 224 × 3                     |
+| Output classes       | 90                                |
+| Activation           | Softmax                           |
+| Training environment | Google Colab (GPU)                |
+| Dataset              | Animal Image Dataset — 90 Animals |
 
 ---
 
@@ -163,17 +179,39 @@ curl -X POST http://localhost:8000/predict \
 
 ## Troubleshooting
 
-**`Model file not found` on startup**
-→ Make sure `MCAR.keras` is copied into `animal-classifier/backend/`
+### `Model file not found` on startup
 
-**`Cannot reach backend` in the UI**
-→ Make sure uvicorn is running on port 8000 before opening the frontend
+Make sure `MCAR.keras` is copied into:
 
-**`ERROR: Could not find a version that satisfies the requirement tensorflow==...`**
-→ Run `pip install tensorflow` without a version pin to get the latest compatible version
+```text
+animal-classifier/backend/
+```
 
-**Frontend shows blank page**
-→ Run `npm install` inside the `frontend` folder first, then `npm run dev`
+### `Cannot reach backend` in the UI
 
-**Wrong predictions**
-→ The model expects natural photos of single animals. Very small, blurry, or heavily cropped images may reduce accuracy.
+Make sure Uvicorn is running on port `8000` before opening the frontend.
+
+### `ERROR: Could not find a version that satisfies the requirement tensorflow==...`
+
+Run:
+
+```cmd
+pip install tensorflow
+```
+
+without a version pin to get the latest compatible version.
+
+### Frontend shows blank page
+
+Run:
+
+```cmd
+npm install
+npm run dev
+```
+
+inside the `frontend` folder.
+
+### Wrong predictions
+
+The model expects natural photos of single animals. Very small, blurry, or heavily cropped images may reduce accuracy.
