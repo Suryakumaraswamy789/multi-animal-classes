@@ -85,7 +85,7 @@ export default function App() {
     try {
       const form = new FormData()
       form.append('file', file)
-      const res = await fetch('http://localhost:8000/predict', { method: 'POST', body: form })
+      const res = await fetch('https://multi-animal-classes-1.onrender.com/predict', { method: 'POST', body: form })
       if (!res.ok) {
         const err = await res.json()
         throw new Error(err.detail || 'Server error')
