@@ -1,0 +1,20 @@
+# Model files (too large for GitHub)
+*.keras
+*.h5
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# OS
+.DS_Store
+Thumbs.db
